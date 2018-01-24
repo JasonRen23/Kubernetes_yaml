@@ -1,8 +1,10 @@
 ## Kubernetes
 
+<img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="100">
+
 ------
 
-<img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="100">
+
 
 - [x] gitlab
 - [x] jenkins
