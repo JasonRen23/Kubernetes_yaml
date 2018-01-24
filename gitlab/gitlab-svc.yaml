@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: gitlab
+  name: gitlab
+spec:
+  type: NodePort
+  ports:
+  ports:
+  - {name: port-1, nodePort: 8088, port: 8088}
+  - {name: port-2, nodePort: 22, port: 22}
+  - {name: port-3, nodePort: 8089, port: 443}
+  selector:
+    app: gitlab

@@ -1,0 +1,29 @@
+kind: ReplicationController
+metadata:
+  name: gitlab
+spec:
+  replicas: 1
+  selector:
+    app: gitlab
+  template:
+    metadata:
+      labels:
+        app: gitlab
+    spec:
+      containers:
+      - name: gitlab
+        image: gitlab/gitlab-ce:latest
+        ports:
+        - {containerPort: 8088, name: port-1}
+        - {containerPort: 443, name: port-2}
+        - {containerPort: 22, name: port-3}
+        volumeMounts:
+        - {mountPath: /var/opt/gitlab, name: gitlab-persistent-storage}
+        - {mountPath: /etc/gitlab/gitlab.rb, name: gitlab-persistent-config}
+      volumes:
+      - name: gitlab-persistent-storage
+        hostPath: 
+          path: /home/docker_mnt/gitlab/gitlab
+      - name: gitlab-persistent-config
+        hostPath:
+          path: /home/docker_mnt/gitlab/gitlab.rb
