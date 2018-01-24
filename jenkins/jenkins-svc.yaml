@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels: {name: jenkins}
+  name: jenkins
+spec:
+  ports:
+  - {name: port-1, nodePort: 50000, port: 50000}
+  - {name: port-2, nodePort: 8888, port: 8080}
+  selector: {app: jenkins}
+  sessionAffinity: None
+  type: NodePort
